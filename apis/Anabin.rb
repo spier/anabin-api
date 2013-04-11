@@ -27,7 +27,7 @@ module API
         params[:max] = params[:max].nil? ? 10 : params[:max]
 
         # construct URL
-        url = "http://anabin.kmk.org/index.php?eID=user_anabin_institutionen&conf=institutionsergebnisliste&sEcho=3&iColumns=13&iDisplayStart=#{params[:offset]}&iDisplayLength=#{params[:max]}&bRegex=false&iSortingCols=1&iSortCol_0=2&sSortDir_0=asc&s1=#{params[:q]}&iDataIds=1"
+        url = "http://anabin.kmk.org/index.php?eID=user_anabin_institutionen&conf=institutionsergebnisliste&sEcho=3&iColumns=13&iDisplayStart=#{params[:offset]}&iDisplayLength=#{params[:max]}&bRegex=false&iSortingCols=1&iSortCol_0=2&sSortDir_0=asc&s1=#{ URI.escape(params[:q]) }&iDataIds=1"
 
         data = JSON[ open(url).read ]
 
@@ -88,7 +88,7 @@ module API
         params[:max] = params[:max].nil? ? 10 : params[:max]
 
         # construct URL
-        url = "http://anabin.kmk.org/index.php?eID=user_anabin_abschluesse&conf=abschlussergebnisliste&sEcho=3&iColumns=13&iDisplayStart=#{params[:offset]}&iDisplayLength=#{params[:max]}&bRegex=false&iSortingCols=1&iSortCol_0=2&sSortDir_0=asc&s1=#{params[:q]}&iDataIds=1"
+        url = "http://anabin.kmk.org/index.php?eID=user_anabin_abschluesse&conf=abschlussergebnisliste&sEcho=3&iColumns=13&iDisplayStart=#{params[:offset]}&iDisplayLength=#{params[:max]}&bRegex=false&iSortingCols=1&iSortCol_0=2&sSortDir_0=asc&s1=#{ URI.escape(params[:q]) }&iDataIds=1"
 
         data = JSON[ open(url).read ]
 
